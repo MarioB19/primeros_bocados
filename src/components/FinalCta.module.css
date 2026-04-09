@@ -1,0 +1,33 @@
+.finalSection {
+  background-color: var(--color-primary);
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  width: auto;
+  margin: 1rem;
+  max-width: calc(var(--max-width) - 2rem);
+  border-radius: 20px;
+}
+
+.finalBody {
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.finalBody p {
+  margin-bottom: 0.5rem;
+}
+
+.btnFinal {
+  background-color: var(--color-bg-main);
+  color: var(--color-primary);
+}
+
+.btnFinal:hover {
+  background-color: var(--color-bg-alt);
+}
+
+.microCopy {
+  margin-top: 2rem;
+}

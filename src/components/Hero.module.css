@@ -1,0 +1,39 @@
+.hero {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.headlineWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.subheadline {
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.ctaWrapper {
+  margin-top: 1rem;
+}
+
+.microCopy {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  display: inline-block;
+  text-align: left;
+}
+
+.checkIcon {
+  color: var(--color-secondary);
+  font-weight: bold;
+  margin-right: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 6rem;
+  }
+}
