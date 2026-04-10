@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         {/* Aquí puedes inyectar tu código de Meta Pixel Script una vez que lo tengas */}
         {/* <script dangerouslySetInnerHTML={{ __html: `...`}} /> */}
       </head>
-      <body>
+      <body className="overflow-x-hidden antialiased text-foreground bg-background">
         {children}
       </body>
     </html>

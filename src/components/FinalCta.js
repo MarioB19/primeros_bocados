@@ -20,7 +20,7 @@ export default function FinalCta() {
 
         <div className="flex justify-center mt-6 px-2 md:px-0">
           <Button 
-            render={<a href="https://inovaris.lemonsqueezy.com/checkout/buy/5f8af630-8381-4373-a617-43e36bbf9626" target="_blank" rel="noopener noreferrer" />} 
+            render={<a href="#precio" />} 
             size="lg" 
             className="w-full sm:w-auto h-auto bg-white text-primary hover:bg-white/95 hover:text-primary text-lg md:text-xl font-bold px-8 md:px-12 py-6 md:py-8 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.3)] hover:-translate-y-2 transition-all duration-300 break-words whitespace-normal text-center"
           >

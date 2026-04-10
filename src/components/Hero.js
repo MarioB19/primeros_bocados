@@ -22,9 +22,13 @@ export default function Hero() {
         </p>
         
         <div className="flex flex-col gap-7 mt-8 max-w-2xl mx-auto md:mx-0">
-          <Button render={<a href="#precio" />} size="lg" className="w-full md:w-max h-auto rounded-full px-8 md:px-12 py-6 md:py-7 text-lg md:text-xl font-black shadow-2xl shadow-primary/30 hover:-translate-y-1 hover:shadow-primary/40 transition-all flex items-center justify-center relative overflow-hidden group">
+          <Button render={<a href="#precio" />} size="lg" className="w-full md:w-max h-auto rounded-full px-4 sm:px-8 md:px-12 py-5 sm:py-6 md:py-7 text-base sm:text-lg md:text-xl font-black shadow-2xl shadow-primary/30 hover:-translate-y-1 hover:shadow-primary/40 transition-all flex items-center justify-center relative overflow-hidden group">
             <span className="absolute inset-0 bg-white/20 w-full translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
-            <span className="relative flex items-center gap-3">Paquete: Guía + Recetas + Calendario — $99 MXN <ArrowRight className="w-6 h-6 stroke-[3px]"/></span>
+            <span className="relative flex items-center justify-center gap-2">
+              <span className="md:hidden">Comprar Paquete — $99 MXN</span>
+              <span className="hidden md:inline">Paquete: Guía + Recetas + Calendario — $99 MXN</span>
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[3px] shrink-0 fill-none"/>
+            </span>
           </Button>
           
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-6 text-sm font-semibold text-muted-foreground w-full">
