@@ -1,48 +1,52 @@
-import styles from './FAQ.module.css';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function FAQ() {
   const faqs = [
     {
       q: "¿Para qué edad de bebé es esta guía?",
-      a: "Está pensada para bebés de 5 a 12 meses, desde antes de comenzar la alimentación complementaria hasta las primeras etapas de consolidación."
+      a: "Para bebés de 5 a 12 meses, desde antes de comenzar la alimentación complementaria hasta las primeras etapas de consolidación alimenticia."
     },
     {
       q: "¿Cómo recibo la guía?",
-      a: "Después del pago recibes un correo con el enlace de descarga. Puedes verla fácilmente desde tu celular o computadora."
+      a: "Inmediatamente después del pago recibes un enlace de descarga en tu correo. La tienes en menos de un minuto."
     },
     {
       q: "¿Necesito saber de nutrición para entenderla?",
-      a: "No. Está escrita en lenguaje claro, sin tecnicismos innecesarios y con ejemplos fáciles de seguir."
+      a: "No. Está escrita en lenguaje simple, sin tecnicismos. Si puedes leer un mensaje de WhatsApp, puedes seguir esta guía."
     },
     {
-      q: "¿Qué significa acceso fundador al app?",
-      a: "Que entras antes que el público general y recibes el primer mes incluido cuando la app esté disponible."
+      q: "¿Qué es la herramienta que mencionan?",
+      a: "Estamos desarrollando una herramienta digital donde podrás buscar cualquier alimento y ver al instante si es seguro para tu bebé según su edad. Las compradoras de la guía tendrán acceso prioritario y un mes gratis."
     },
     {
-      q: "¿Cuándo sale la app?",
-      a: "Está en construcción. Si compras la guía hoy, serás de las primeras en enterarte y tendrás acceso preferencial."
+      q: "¿Cuándo estará lista la herramienta?",
+      a: "Estamos en desarrollo. Te avisaremos por correo en cuanto esté disponible. Mientras tanto, la guía tiene todo lo que necesitas para empezar."
     }
   ];
 
   return (
-    <section className={`container ${styles.faqSection}`}>
-      <h2 className="title-section text-center" style={{marginBottom: '2.5rem'}}>
+    <section className="container mx-auto px-6 py-20 max-w-4xl border-t border-border">
+      <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
         Preguntas frecuentes
       </h2>
       
-      <div className={styles.faqContainer}>
+      <Accordion className="w-full">
         {faqs.map((faq, idx) => (
-          <details className={styles.faqItem} key={idx}>
-            <summary className={styles.faqQuestion}>
+          <AccordionItem key={idx} value={`item-${idx}`} className="border-border">
+            <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline hover:text-primary">
               {faq.q}
-              <span className={styles.arrow}>▼</span>
-            </summary>
-            <div className={styles.faqAnswer}>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground leading-relaxed text-base">
               {faq.a}
-            </div>
-          </details>
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </section>
   );
 }
