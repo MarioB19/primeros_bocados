@@ -21,12 +21,18 @@ export default function Pricing() {
                 Acceso Fundador
               </div>
               
-              <div className="mt-8 flex justify-center items-start">
-                <span className="text-3xl md:text-4xl font-bold text-primary mt-1 mr-1.5">$</span>
-                <span className="text-7xl md:text-8xl font-black text-foreground tracking-tighter leading-none">99</span>
+              <div className="mt-8 flex flex-col items-center justify-center tracking-tight">
+                <div className="flex items-center justify-center gap-3 mb-1">
+                  <span className="text-xl md:text-2xl text-muted-foreground font-bold line-through decoration-destructive/60 decoration-2">$299 MXN</span>
+                  <span className="text-[11px] md:text-[13px] font-black bg-red-600 text-white px-3 py-1 rounded-full uppercase tracking-widest flex items-center gap-1.5 shadow-lg shadow-red-500/30 animate-pulse border border-red-400"><Zap className="w-3.5 h-3.5 fill-white"/> 66% DE DESCUENTO HOY</span>
+                </div>
+                <div className="flex items-start justify-center">
+                  <span className="text-3xl md:text-4xl font-bold text-primary mt-1.5 mr-1.5">$</span>
+                  <span className="text-7xl md:text-8xl font-black text-foreground tracking-tighter leading-none">99</span>
+                </div>
               </div>
               
-              <p className="text-xs md:text-sm font-bold text-primary mt-3 uppercase tracking-wider">Pago Único MXN</p>
+              <p className="text-xs md:text-sm font-bold text-primary mt-2 uppercase tracking-wider">Pago Único MXN</p>
             </div>
             
             <CardContent className="p-6 md:p-10 bg-white">
@@ -76,7 +82,7 @@ export default function Pricing() {
 
               <Button render={<a href="https://inovaris.lemonsqueezy.com/checkout/buy/5f8af630-8381-4373-a617-43e36bbf9626" target="_blank" rel="noopener noreferrer" />} size="lg" className="w-full sm:w-[80%] mx-auto h-auto text-xl font-black rounded-full py-7 shadow-xl shadow-primary/30 hover:-translate-y-1 hover:shadow-primary/40 transition-all flex items-center justify-center relative overflow-hidden group">
                 <span className="absolute inset-0 bg-white/20 w-full translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
-                <span className="relative flex items-center gap-2">Comprar Ahora — $99 MXN <ArrowRight className="w-6 h-6"/></span>
+                <span className="relative flex items-center gap-2">Comprar Ahora · <span className="line-through decoration-white/50 opacity-70 font-semibold mr-1">$299</span> $99 MXN <ArrowRight className="w-6 h-6"/></span>
               </Button>
             </CardContent>
             
@@ -99,21 +105,23 @@ export default function Pricing() {
         </div>
 
         {/* Lado DERECHO - Dolor y Empatía */}
-        <div className="w-full lg:w-[40%] text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-primary/20 text-primary font-bold text-sm mb-8 shadow-sm">
-            <Zap className="w-4 h-4 fill-primary" /> Descarga inmediata
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-8">
-            Empieza hoy con <span className="text-primary tracking-tight block mt-2">claridad</span>.
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8 w-full">
-            Por el precio de un desayuno, borrarás para siempre el estrés de googlear a medias, el miedo a atragantamientos y la ansiedad de no saber qué prepararle. <strong>Ahorra horas de dudas semanales.</strong>
-          </p>
-          
-          <div className="border-l-4 border-secondary pl-6 py-2 mt-10 bg-secondary/5 rounded-r-xl">
-            <p className="text-lg text-foreground font-medium italic">
-              "El miedo a lo desconocido no alimenta a tu bebé. La información correcta sí."
+        <div className="w-full lg:w-[40%] text-center lg:text-left flex flex-col justify-center">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-primary/20 text-primary font-bold text-sm mb-6 shadow-sm">
+              <Zap className="w-4 h-4 fill-primary" /> Descarga inmediata
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-foreground leading-[1.1] mb-6">
+              Empieza hoy con <span className="text-primary tracking-tight">claridad.</span>
+            </h2>
+            <p className="text-lg md:text-lg text-muted-foreground leading-relaxed mb-6 w-full">
+              Por el precio de un desayuno, borrarás para siempre el estrés de googlear a medias, el miedo a atragantamientos y la ansiedad de no saber qué prepararle. <strong>Ahorra horas de dudas semanales.</strong>
             </p>
+            
+            <div className="border-l-4 border-secondary pl-5 py-3 md:py-4 bg-secondary/5 rounded-r-xl mt-2">
+              <p className="text-base md:text-lg text-foreground font-medium italic leading-snug">
+                "El miedo a lo desconocido no alimenta a tu bebé. La información correcta sí."
+              </p>
+            </div>
           </div>
         </div>
 

@@ -68,8 +68,8 @@ export default function BenefitsIncludes() {
 
         <div className="mt-12 md:mt-16 text-center px-2">
           <Button render={<a href="#precio" />} size="lg" className="rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold shadow-xl md:shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all w-full sm:w-auto h-auto flex justify-center items-center">
-            <span className="sm:hidden">Descargar Paquete — $99 MXN →</span>
-            <span className="hidden sm:inline">Descargar la guía ahora — $99 MXN →</span>
+            <span className="sm:hidden">Descargar Paquete · <span className="line-through decoration-white/50 opacity-70 font-semibold mr-1">$299</span> $99 MXN →</span>
+            <span className="hidden sm:inline">Descargar la guía ahora · <span className="line-through decoration-white/50 opacity-70 font-semibold mr-1">$299</span> $99 MXN →</span>
           </Button>
         </div>
       </section>

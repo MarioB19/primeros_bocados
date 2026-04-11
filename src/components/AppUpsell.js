@@ -37,9 +37,10 @@ export default function AppUpsell() {
               <Button 
                 render={<a href="#precio" />} 
                 size="lg"
-                className="w-full sm:w-auto h-auto text-lg md:text-xl font-bold rounded-full px-8 md:px-12 py-6 md:py-8 bg-primary text-primary-foreground hover:bg-primary/95 hover:-translate-y-1 transition-all shadow-xl shadow-primary/30 break-words whitespace-normal flex items-center justify-center gap-2"
+                className="w-full sm:w-auto h-auto text-base sm:text-lg md:text-xl font-bold rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 bg-primary text-primary-foreground hover:bg-primary/95 hover:-translate-y-1 transition-all shadow-xl shadow-primary/30 flex justify-center items-center"
               >
-                <span>Comprar Guía + Acceso — $99 MXN</span> <ArrowRight className="w-5 h-5 md:w-6 md:h-6 shrink-0"/>
+                <span className="sm:hidden flex items-center gap-1.5">Guía + App · <span className="line-through decoration-white/50 opacity-70 font-semibold ml-0.5">$299</span> $99 MXN <ArrowRight className="w-4 h-4 shrink-0"/></span>
+                <span className="hidden sm:inline-flex items-center justify-center gap-2">Comprar Guía + Acceso App · <span className="line-through decoration-white/50 opacity-70 font-semibold mr-0.5">$299</span> $99 MXN <ArrowRight className="w-5 h-5 md:w-6 md:h-6 shrink-0"/></span>
               </Button>
             </div>
           </div>

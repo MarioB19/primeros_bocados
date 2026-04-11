@@ -89,8 +89,9 @@ export default function SocialProof() {
         </div>
 
         <div className="mt-12 md:mt-16 text-center px-2">
-          <Button render={<a href="#precio" />} size="lg" className="w-full sm:w-auto h-auto rounded-full px-8 md:px-12 py-5 md:py-8 text-lg md:text-xl font-bold shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all break-words whitespace-normal text-center">
-            Sí, quiero la misma tranquilidad — $99 MXN →
+          <Button render={<a href="#precio" />} size="lg" className="w-full sm:w-auto h-auto rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold shadow-xl md:shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all flex justify-center items-center">
+            <span className="sm:hidden">Quiero tranquilidad · <span className="line-through decoration-white/50 opacity-70 font-semibold mr-1">$299</span> $99 MXN →</span>
+            <span className="hidden sm:inline">Sí, quiero la misma tranquilidad · <span className="line-through decoration-white/50 opacity-70 font-semibold mr-1">$299</span> $99 MXN →</span>
           </Button>
         </div>
       </div>
