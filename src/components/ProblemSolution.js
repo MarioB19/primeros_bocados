@@ -68,7 +68,7 @@ export default function ProblemSolution() {
 
           <div className="mt-10 rounded-2xl md:rounded-[2rem] overflow-hidden border-4 border-white/20 shadow-2xl w-full max-w-md mx-auto relative">
             <Image
-              src="/lectura-mama.jpg"
+              src="/app.png"
               alt="Mamá con su bebé usando Primeros Bocados"
               width={800}
               height={800}

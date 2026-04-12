@@ -61,11 +61,11 @@ export default function Hero() {
            {/* Marco de la imagen */}
            <div className="relative rounded-[2rem] md:rounded-[3rem] border-[6px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden bg-[#faf8f5]">
              <Image
-               src="/mockup-paquete.jpg"
+               src="/landing.png"
                alt="Vista previa de la app Primeros Bocados"
                width={1200}
                height={1200}
-               className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+               className="w-full h-auto object-contain hover:scale-105 transition-transform duration-700"
                unoptimized
                priority
              />

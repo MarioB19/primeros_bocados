@@ -72,7 +72,7 @@ export default function BenefitsIncludes() {
       {/* BANNER VISUAL */}
       <section className="w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl relative border-4 border-white mb-20">
         <Image
-             src="/banner-transforma.jpg"
+             src="/benefits.png"
              alt="Transforma la alimentación de tu bebé con Primeros Bocados"
              width={1400}
              height={700}
