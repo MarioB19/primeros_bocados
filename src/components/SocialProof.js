@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Star } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
 
 export default function SocialProof() {
   const renderStars = () => (
@@ -21,9 +21,16 @@ export default function SocialProof() {
           <Badge variant="outline" className="px-6 py-2.5 text-sm md:text-base bg-secondary/10 text-secondary border-none font-extrabold uppercase tracking-wider rounded-full">
             Lo que dicen otras mamás
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-extrabold mt-6 text-foreground">
-            Más de 350 mamás ya se unieron a la lista de espera.
+          {/* Stat grande */}
+          <div className="mt-8 mb-2">
+            <span className="text-7xl md:text-8xl font-black text-primary leading-none">350+</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground">
+            mamás ya garantizaron su acceso anticipado.
           </h2>
+          <p className="text-muted-foreground mt-3 text-base">
+            Esto es lo que nos comparten mientras esperan el lanzamiento.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -32,7 +39,7 @@ export default function SocialProof() {
               <div>
                 {renderStars()}
                 <p className="text-foreground font-medium text-lg mb-6 leading-snug">
-                  "Me sentía súper abrumada leyendo grupos de Facebook. Esta guía es exactamente lo que necesitaba."
+                  &ldquo;Me sentía súper abrumada leyendo grupos de Facebook. Que exista una app con respuestas claras es exactamente lo que necesitaba.&rdquo;
                 </p>
               </div>
               <div className="flex items-center gap-4 mt-auto border-t border-border/50 pt-4">
@@ -41,18 +48,18 @@ export default function SocialProof() {
                 </div>
                 <div className="text-sm">
                   <strong className="block text-foreground">Mariana</strong>
-                  <span className="text-muted-foreground text-xs block">Mamá primeriza en CDMX</span>
+                  <span className="text-muted-foreground text-xs block">Mamá de bebé de 7 meses · CDMX</span>
                 </div>
               </div>
             </CardContent>
           </Card>
-          
+
           <Card className="bg-background shadow-md border-border/50 hover:shadow-lg transition-shadow">
             <CardContent className="pt-8 flex flex-col justify-between h-full">
               <div>
                 {renderStars()}
                 <p className="text-foreground font-medium text-lg mb-6 leading-snug">
-                  "Poder saber en un par de páginas cómo empezar sin tener que ver un curso de 8 horas fue un alivio."
+                  &ldquo;Por fin voy a poder consultar en el súper si algo le sirve a mi bebé sin tener que llamarle a mi mamá o buscar en Google.&rdquo;
                 </p>
               </div>
               <div className="flex items-center gap-4 mt-auto border-t border-border/50 pt-4">
@@ -61,7 +68,7 @@ export default function SocialProof() {
                 </div>
                 <div className="text-sm">
                   <strong className="block text-foreground">Laura</strong>
-                  <span className="text-muted-foreground text-xs block">Mamá en Monterrey</span>
+                  <span className="text-muted-foreground text-xs block">Mamá de bebé de 8 meses · Monterrey</span>
                 </div>
               </div>
             </CardContent>
@@ -72,7 +79,7 @@ export default function SocialProof() {
               <div>
                 {renderStars()}
                 <p className="text-foreground font-medium text-lg mb-6 leading-snug">
-                  "Por fin alguien lo explica de forma terrestre y sin tanto rodeo técnico."
+                  &ldquo;Por fin alguien lo explica de forma terrestre y sin tanto rodeo técnico. Ya quiero que lancen.&rdquo;
                 </p>
               </div>
               <div className="flex items-center gap-4 mt-auto border-t border-border/50 pt-4">
@@ -81,7 +88,7 @@ export default function SocialProof() {
                 </div>
                 <div className="text-sm">
                   <strong className="block text-foreground">Sofía</strong>
-                  <span className="text-muted-foreground text-xs block">Mamá en Guadalajara</span>
+                  <span className="text-muted-foreground text-xs block">Mamá de bebé de 6 meses · Guadalajara</span>
                 </div>
               </div>
             </CardContent>
@@ -89,9 +96,8 @@ export default function SocialProof() {
         </div>
 
         <div className="mt-12 md:mt-16 text-center px-2">
-          <Button render={<a href="#precio" />} size="lg" className="w-full sm:w-auto h-auto rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold shadow-xl md:shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all flex justify-center items-center">
-            <span className="sm:hidden">Quiero tranquilidad · <span className="line-through decoration-white/50 opacity-70 font-semibold mr-1">$299</span> $99 MXN →</span>
-            <span className="hidden sm:inline">Sí, quiero la misma tranquilidad · <span className="line-through decoration-white/50 opacity-70 font-semibold mr-1">$299</span> $99 MXN →</span>
+          <Button render={<a href="#registro" />} size="lg" className="w-full sm:w-auto h-auto rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold shadow-xl md:shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all flex justify-center items-center gap-2">
+            Unirme gratis <ArrowRight className="w-5 h-5 shrink-0" />
           </Button>
         </div>
       </div>

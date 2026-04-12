@@ -10,24 +10,28 @@ import { HelpCircle } from "lucide-react";
 export default function FAQ() {
   const faqs = [
     {
-      q: "¿Para qué edad de bebé es esta guía?",
-      a: "Para bebés de 5 a 12 meses, desde antes de comenzar la alimentación complementaria hasta las primeras etapas de consolidación alimenticia. Incluso si tu bebé tiene 6 o 7 meses y ya empezaste, la guía te ayudará a corregir miedos y reestructurar tus menús."
+      q: "¿Para qué edad de bebé funciona la app?",
+      a: "Para bebés de 4 a 12 meses, desde antes de comenzar la alimentación complementaria hasta las primeras etapas de consolidación alimenticia. La app te muestra exactamente qué alimentos son seguros para la edad actual de tu bebé y cómo ofrecerlos."
     },
     {
-      q: "¿Cómo recibo la guía?",
-      a: "De forma inmediata. Justo al procesar tu pago seguro de $99 MXN, se abrirá la pantalla para descargar tus archivos PDF (Guía, Recetario y Calendario). Además, te llegará una copia de respaldo directo a tu correo electrónico."
+      q: "¿Cómo funciona el acceso gratuito?",
+      a: "Te registras con tu correo, el nombre y la edad de tu bebé. Al hacerlo, te enviamos de inmediato el ebook Primeros Bocados de regalo. Cuando la app esté lista para lanzar, serás de las primeras en recibir acceso — completamente gratis durante el período de lanzamiento."
     },
     {
-      q: "¿Necesito saber de nutrición para entenderla?",
-      a: "En absoluto. Está escrita en lenguaje simple de mamá a mamá, sin términos médicos aburridos. Si puedes leer un mensaje de WhatsApp, puedes seguir esta guía al pie de la letra."
+      q: "¿De dónde viene la información de alimentos?",
+      a: "Toda la información está basada en las guías de la Organización Mundial de la Salud (OMS) y la Academia Americana de Pediatría (AAP). Nada de opiniones ni tendencias de redes sociales — solo guías clínicas actualizadas, explicadas en lenguaje de mamá a mamá."
     },
     {
-      q: "¿Qué es esa aplicación / herramienta que mencionan?",
-      a: "Estamos desarrollando un buscador rápido para tu celular. Te servirá para resolver dudas express (ej. ¿Cómo se corta el brócoli? ¿Le puedo dar fresa hoy?). Al comprar este paquete, te anotas en la lista VIP para usarla 1 mes gratis apenas la lancemos."
+      q: "¿Necesito saber de nutrición para usarla?",
+      a: "En absoluto. La app está diseñada para que cualquier mamá —sin conocimientos de nutrición— pueda usarla en segundos. Si puedes escribir en Google, puedes usar Primeros Bocados."
     },
     {
-      q: "¿Cuándo estará lista la herramienta / app web?",
-      a: "Estamos en fase de programación. Te enviaremos un correo apenas abramos los accesos. Mientras tanto, el paquete en PDF que descargas hoy tiene absolutamente todo lo necesario para que inicies con éxito."
+      q: "¿Cuándo puedo empezar a usar la app?",
+      a: "Estamos en las últimas semanas de desarrollo. Al registrarte quedas en la lista de acceso anticipado — serás de las primeras en entrar cuando abramos. Te avisamos directo a tu correo."
+    },
+    {
+      q: "¿El ebook es de verdad gratis?",
+      a: "Sí. Al registrarte te lo enviamos de inmediato a tu correo, sin costo y sin necesidad de tarjeta. Es nuestro regalo por sumarte antes del lanzamiento."
     }
   ];
 
@@ -45,15 +49,15 @@ export default function FAQ() {
             Preguntas frecuentes
           </h2>
           <p className="text-muted-foreground mt-4 md:mt-6 text-lg">
-            Todo lo que necesitas saber antes de dar el primer bocado.
+            Todo lo que necesitas saber antes de registrarte.
           </p>
         </div>
-        
+
         <Accordion className="w-full space-y-4">
           {faqs.map((faq, idx) => (
-            <AccordionItem 
-              key={idx} 
-              value={`item-${idx}`} 
+            <AccordionItem
+              key={idx}
+              value={`item-${idx}`}
               className="bg-white border-none shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-2xl px-5 md:px-8 data-[state=open]:shadow-[0_10px_30px_rgba(217,99,77,0.1)] data-[state=open]:ring-1 data-[state=open]:ring-primary/20 transition-all duration-300"
             >
               <AccordionTrigger className="text-left font-bold text-foreground hover:no-underline text-base md:text-lg py-5 md:py-6 [&[data-state=open]]:text-primary transition-colors">

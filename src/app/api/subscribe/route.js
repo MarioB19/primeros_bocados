@@ -1,6 +1,6 @@
 export async function POST(request) {
   try {
-    const { email } = await request.json();
+    const { email, babyAge } = await request.json();
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return Response.json({ error: "Correo electrónico inválido." }, { status: 400 });
@@ -9,7 +9,7 @@ export async function POST(request) {
     const API_KEY = process.env.MAILERLITE_API_KEY;
     const GROUP_ID = process.env.MAILERLITE_GROUP_ID;
 
-    // 1. Crear o actualizar el suscriptor
+    // Crear o actualizar el suscriptor con campos personalizados
     const subscriberRes = await fetch("https://connect.mailerlite.com/api/subscribers", {
       method: "POST",
       headers: {
@@ -20,6 +20,9 @@ export async function POST(request) {
       body: JSON.stringify({
         email,
         groups: [GROUP_ID],
+        fields: {
+          ...(babyAge ? { baby_age_months: String(babyAge) } : {}),
+        },
       }),
     });
 
