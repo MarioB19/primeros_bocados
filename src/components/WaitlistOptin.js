@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, CheckCircle, Loader2, Gift } from "lucide-react";
+import { trackLead } from "@/lib/metaPixel";
 
 export default function WaitlistOptin() {
   const [email, setEmail] = useState("");
@@ -35,6 +36,7 @@ export default function WaitlistOptin() {
         setErrorMsg(data.error || "Hubo un error. Intenta de nuevo.");
         setStatus("error");
       } else {
+        trackLead();
         setStatus("success");
       }
     } catch {

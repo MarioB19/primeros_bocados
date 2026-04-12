@@ -51,7 +51,7 @@ export default function BenefitsIncludes() {
           Lo que vas a lograr con la app:
         </h2>
         <p className="text-center text-muted-foreground text-base md:text-lg mb-10 md:mb-16 max-w-2xl mx-auto">
-          Desde el primer día que la usas, la ansiedad de "¿ya le puedo dar esto?" desaparece.
+          Desde el primer día que la usas, la ansiedad de &quot;¿ya le puedo dar esto?&quot; desaparece.
         </p>
 
         <ul className="grid md:grid-cols-2 gap-6 md:gap-8">
