@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Star, ArrowRight } from "lucide-react";
+import ScrollToRegistroButton from "@/components/ScrollToRegistroButton";
 
 export default function SocialProof() {
   const renderStars = () => (
@@ -96,9 +96,9 @@ export default function SocialProof() {
         </div>
 
         <div className="mt-12 md:mt-16 text-center px-2">
-          <Button render={<a href="#registro" />} size="lg" className="w-full sm:w-auto h-auto rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold shadow-xl md:shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all flex justify-center items-center gap-2">
+          <ScrollToRegistroButton className="w-full sm:w-auto h-auto rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold shadow-xl md:shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all flex justify-center items-center gap-2">
             Unirme gratis <ArrowRight className="w-5 h-5 shrink-0" />
-          </Button>
+          </ScrollToRegistroButton>
         </div>
       </div>
     </section>

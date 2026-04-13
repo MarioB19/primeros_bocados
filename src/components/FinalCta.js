@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import ScrollToRegistroButton from "@/components/ScrollToRegistroButton";
 
 export default function FinalCta() {
   return (
@@ -26,13 +26,11 @@ export default function FinalCta() {
         </p>
 
         <div className="flex justify-center mt-6 px-2 md:px-0">
-          <Button
-            render={<a href="#registro" />}
-            size="lg"
+          <ScrollToRegistroButton
             className="w-full sm:w-auto h-auto bg-white text-primary hover:bg-white/95 hover:text-primary text-lg md:text-xl font-bold px-8 md:px-12 py-6 md:py-8 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.3)] hover:-translate-y-2 transition-all duration-300 flex items-center justify-center gap-2"
           >
             Quiero acceso gratuito <ArrowRight className="w-5 h-5 shrink-0" />
-          </Button>
+          </ScrollToRegistroButton>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Smartphone, Search, Leaf, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import ScrollToRegistroButton from "@/components/ScrollToRegistroButton";
 
 export default function AppUpsell() {
   const features = [
@@ -61,13 +61,11 @@ export default function AppUpsell() {
           </div>
 
           <div>
-            <Button
-              render={<a href="#registro" />}
-              size="lg"
+            <ScrollToRegistroButton
               className="w-full sm:w-auto h-auto text-base sm:text-lg md:text-xl font-bold rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 bg-primary text-primary-foreground hover:bg-primary/95 hover:-translate-y-1 transition-all shadow-xl shadow-primary/30 flex justify-center items-center gap-2"
             >
               Quiero acceso gratuito <ArrowRight className="w-5 h-5 shrink-0"/>
-            </Button>
+            </ScrollToRegistroButton>
             <p className="text-xs text-muted-foreground mt-3 text-center sm:text-left">
               Gratis durante el lanzamiento · $99 MXN/mes después · Sin tarjeta de crédito
             </p>
