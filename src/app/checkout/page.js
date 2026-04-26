@@ -93,7 +93,21 @@ export default function CheckoutPage() {
     },
   };
 
-  const onSubmit = async ({ formData }) => {
+  const onSubmit = async ({ selectedPaymentMethod, formData }) => {
+    try {
+      // Confirmar la orden en nuestro backend
+      await fetch("/api/checkout/confirm-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          orderId,
+          paymentId: formData?.payer?.id || formData?.id || null,
+        }),
+      });
+    } catch (err) {
+      console.error("Error confirmando orden:", err);
+    }
+    // Redirigir siempre a /gracias (el webhook de MP es el respaldo)
     router.push("/gracias");
   };
 
