@@ -19,6 +19,11 @@ export function trackInitiateCheckout() {
   window.fbq("track", "InitiateCheckout");
 }
 
+export function trackAddPaymentInfo() {
+  if (!canTrack()) return;
+  window.fbq("track", "AddPaymentInfo");
+}
+
 export function trackPurchase(value = 199, currency = "MXN") {
   if (!canTrack()) return;
   window.fbq("track", "Purchase", { value, currency });

@@ -7,12 +7,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function GraciasPage() {
-  const hasTracked = useRef(false);
-
   useEffect(() => {
-    if (!hasTracked.current) {
+    if (typeof window !== 'undefined' && !sessionStorage.getItem('purchase_tracked')) {
       trackPurchase(199, "MXN");
-      hasTracked.current = true;
+      sessionStorage.setItem('purchase_tracked', 'true');
     }
   }, []);
 

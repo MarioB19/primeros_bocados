@@ -2,11 +2,8 @@
 
 import { Timer, ArrowRight, CheckCircle2, Gift } from "lucide-react";
 import Link from "next/link";
-import { trackInitiateCheckout } from "@/lib/metaPixel";
 
 export default function UrgencyBanner({ plazasRestantes }) {
-  const MERCADOPAGO_URL = "https://mpago.li/1fACT3X?utm_source=landing&utm_medium=direct&utm_campaign=founder";
-
   return (
     <section id="oferta" className="container mx-auto px-6 py-16 md:py-24 max-w-4xl">
       <div className="bg-white border-4 border-primary rounded-[2.5rem] p-8 md:p-14 text-left shadow-[0_20px_60px_rgba(217,99,77,0.15)] relative overflow-hidden flex flex-col md:flex-row gap-10 md:gap-16 items-center">
@@ -54,10 +51,7 @@ export default function UrgencyBanner({ plazasRestantes }) {
           <p className="text-sm text-red-500 font-medium line-through mb-8">Valor normal: $99 MXN / mes</p>
 
           <Link
-            href={MERCADOPAGO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackInitiateCheckout}
+            href="/checkout"
             className="w-full h-auto rounded-full px-6 py-5 text-lg font-black shadow-xl shadow-primary/30 hover:-translate-y-1 hover:shadow-primary/40 transition-all flex items-center justify-center gap-2 bg-primary text-primary-foreground mb-4"
           >
             Comprar ahora
