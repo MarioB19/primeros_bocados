@@ -42,7 +42,7 @@ export default function ProblemSolution() {
           </h2>
 
           <p className="text-lg text-white/90 mb-6">
-            La creamos para que no tengas que improvisar, adivinar ni depender de respuestas sueltas en internet.
+            Para que no tengas que improvisar, adivinar ni depender de respuestas sueltas en internet.
           </p>
 
           <div className="bg-white/10 p-6 rounded-2xl border border-white/20 mb-6">

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, CheckCircle, Loader2, Gift } from "lucide-react";
+import { Mail, CheckCircle, Loader2, BookOpen } from "lucide-react";
 import { trackLead } from "@/lib/metaPixel";
 
 export default function WaitlistOptin() {
@@ -61,47 +61,30 @@ export default function WaitlistOptin() {
                   <CheckCircle className="w-12 h-12 text-emerald-600" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight">
-                  ¡Ya estás dentro! 🎉
+                  Listo, revisa tu correo en los próximos minutos.
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-                  Te acabamos de enviar el <strong>ebook Primeros Bocados</strong> al correo{" "}
-                  <strong className="text-primary">{email}</strong>. Revisa tu bandeja — si no lo ves en 2 minutos, revisa spam.<br/>
-                  <span className="block mt-2 text-sm">Cuando la app esté lista, serás de las primeras en saberlo. 💚</span>
+                  Te acabamos de enviar la <strong>guía PDF Primeros Bocados</strong> al correo{" "}
+                  <strong className="text-primary">{email}</strong>. Si no lo ves, no olvides revisar tu carpeta de spam.<br/>
                 </p>
               </div>
             ) : (
               /* ---- Estado NORMAL / CARGANDO / ERROR ---- */
               <>
                 <div className="text-center mb-8">
+                  <div className="bg-amber-100/80 border border-amber-300 text-amber-900 font-extrabold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 inline-block shadow-sm">
+                    🎁 Guía Gratis
+                  </div>
                   <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-4 leading-tight">
-                    Regístrate y accede cuando lancemos.<br/>
-                  <span className="text-primary">Acceso gratuito desde el primer día.</span>
+                    ¿Aún no estás lista para fundadora? <br className="hidden sm:block"/>
+                    <span className="text-primary">Empieza con la guía gratis.</span>
                   </h2>
                   <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-                    Regístrate ahora y garantizas tu lugar antes de que abramos el acceso al público general.
-                    <strong> Sin tarjeta de crédito. Sin compromisos.</strong>
+                    Déjame tu correo y te envío la guía PDF de inmediato, sin costo.
                   </p>
                 </div>
 
-                <p className="text-sm md:text-base text-muted-foreground text-center max-w-lg mx-auto mb-8 leading-relaxed">
-                  La ventana de alimentación complementaria dura solo 6 meses. Cada semana que pasa es una semana sin la respuesta clara que tu bebé necesita.
-                </p>
-
-                {/* Freebie */}
-                <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-8 text-center sm:text-left border-l-4 border-l-primary shadow-sm">
-                  <div className="bg-white rounded-full p-3 shadow-md shrink-0">
-                    <Gift className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <strong className="block text-foreground text-lg mb-1">🎁 Ebook de regalo al registrarte</strong>
-                    <span className="text-sm text-muted-foreground leading-relaxed">
-                      Te enviamos de inmediato el <strong>Ebook Primeros Bocados</strong> — guía completa de alimentación
-                      complementaria + recetario de +50 recetas. Tuyo hoy, gratis.
-                    </span>
-                  </div>
-                </div>
-
-                <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
+                <form className="flex flex-col gap-4 w-full max-w-md mx-auto" onSubmit={handleSubmit}>
 
                   {/* Email */}
                   <div className="relative">
@@ -139,7 +122,7 @@ export default function WaitlistOptin() {
                       disabled={status === "loading"}
                     >
                       <option value="" disabled>¿Cuántos meses tiene tu bebé?</option>
-                      {Array.from({ length: 13 }, (_, i) => i + 4).map((m) => (
+                      {Array.from({ length: 21 }, (_, i) => i + 4).map((m) => (
                         <option key={m} value={m}>{m} meses</option>
                       ))}
                     </select>
@@ -154,9 +137,9 @@ export default function WaitlistOptin() {
                   >
                     {status === "loading" ? (
                       <span className="flex items-center gap-2">
-                        <Loader2 className="w-5 h-5 animate-spin" /> Registrando...
+                        <Loader2 className="w-5 h-5 animate-spin" /> Enviando...
                       </span>
-                    ) : "Quiero acceso gratuito →"}
+                    ) : "Enviarme la guía gratis →"}
                   </Button>
                 </form>
 
@@ -164,8 +147,8 @@ export default function WaitlistOptin() {
                   <p className="text-red-500 text-sm mt-3 font-medium text-center">{errorMsg}</p>
                 )}
 
-                <p className="text-xs text-muted-foreground mt-5 text-center">
-                  Cero spam. Promesa de mamá. Al registrarte aceptas recibir noticias de Primeros Bocados.
+                <p className="text-xs text-muted-foreground mt-5 text-center max-w-sm mx-auto">
+                  Cero spam. Promesa de mamá. Al registrarte aceptas recibir correos de Primeros Bocados.
                 </p>
               </>
             )}

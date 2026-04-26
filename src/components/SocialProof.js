@@ -1,9 +1,17 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, ArrowRight } from "lucide-react";
-import ScrollToRegistroButton from "@/components/ScrollToRegistroButton";
 
 export default function SocialProof() {
+  const scrollToOffer = () => {
+    const oferta = document.getElementById("oferta");
+    if (oferta) {
+      oferta.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  
   const renderStars = () => (
     <div className="flex gap-1 mb-4 text-yellow-400">
       <Star className="w-4 h-4 fill-current" />
@@ -21,15 +29,11 @@ export default function SocialProof() {
           <Badge variant="outline" className="px-6 py-2.5 text-sm md:text-base bg-secondary/10 text-secondary border-none font-extrabold uppercase tracking-wider rounded-full">
             Lo que dicen otras mamás
           </Badge>
-          {/* Stat grande */}
-          <div className="mt-8 mb-2">
-            <span className="text-7xl md:text-8xl font-black text-primary leading-none">350+</span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground">
-            mamás ya garantizaron su acceso anticipado.
+          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-8 mb-4">
+            <span className="text-primary text-4xl md:text-5xl font-black">40+</span> mamás ya son fundadoras y <span className="text-secondary text-4xl md:text-5xl font-black">300+</span> están esperando el lanzamiento.
           </h2>
           <p className="text-muted-foreground mt-3 text-base">
-            Esto es lo que nos comparten mientras esperan el lanzamiento.
+            Esto es lo que nos comparten las mamás de la lista de espera.
           </p>
         </div>
 
@@ -95,10 +99,13 @@ export default function SocialProof() {
           </Card>
         </div>
 
-        <div className="mt-12 md:mt-16 text-center px-2">
-          <ScrollToRegistroButton className="w-full sm:w-auto h-auto rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold shadow-xl md:shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all flex justify-center items-center gap-2">
-            Unirme gratis <ArrowRight className="w-5 h-5 shrink-0" />
-          </ScrollToRegistroButton>
+        <div className="mt-12 md:mt-16 text-center px-2 flex justify-center">
+          <button
+            onClick={scrollToOffer}
+            className="w-full sm:w-auto h-auto rounded-full px-5 sm:px-8 md:px-12 py-4 sm:py-5 md:py-6 text-base sm:text-lg md:text-xl font-bold shadow-xl md:shadow-2xl shadow-primary/20 hover:-translate-y-2 hover:shadow-primary/40 transition-all flex justify-center items-center gap-2 bg-primary text-primary-foreground"
+          >
+            Quiero ser fundadora — $199 <ArrowRight className="w-5 h-5 shrink-0" />
+          </button>
         </div>
       </div>
     </section>

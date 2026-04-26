@@ -1,9 +1,17 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Smartphone, Search, Leaf, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import ScrollToRegistroButton from "@/components/ScrollToRegistroButton";
 
 export default function AppUpsell() {
+  const scrollToOffer = () => {
+    const oferta = document.getElementById("oferta");
+    if (oferta) {
+      oferta.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  
   const features = [
     {
       icon: <Search className="w-5 h-5 text-primary" />,
@@ -40,9 +48,7 @@ export default function AppUpsell() {
           </h2>
 
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Como <strong>Solid Starts</strong>, pero en español, con ingredientes de tu súper
-            y pensada para las mamás mexicanas. Consulta cualquier alimento en segundos —
-            sin buscar, sin dudar, sin miedo a equivocarte.
+            Una app pensada para mamás mexicanas, con ingredientes de tu súper y respuestas en segundos. Consulta cualquier alimento — sin buscar, sin dudar, sin miedo a equivocarte.
           </p>
 
           {/* Features */}
@@ -61,13 +67,14 @@ export default function AppUpsell() {
           </div>
 
           <div>
-            <ScrollToRegistroButton
-              className="w-full sm:w-auto h-auto text-base sm:text-lg md:text-xl font-bold rounded-full px-5 sm:px-8 md:px-12 py-5 sm:py-6 md:py-8 bg-primary text-primary-foreground hover:bg-primary/95 hover:-translate-y-1 transition-all shadow-xl shadow-primary/30 flex justify-center items-center gap-2"
+            <button
+              onClick={scrollToOffer}
+              className="w-full sm:w-auto h-auto text-base sm:text-lg md:text-xl font-bold rounded-full px-5 sm:px-8 md:px-12 py-4 sm:py-5 md:py-6 bg-primary text-primary-foreground hover:bg-primary/95 hover:-translate-y-1 transition-all shadow-xl shadow-primary/30 flex justify-center items-center gap-2"
             >
-              Quiero acceso gratuito <ArrowRight className="w-5 h-5 shrink-0"/>
-            </ScrollToRegistroButton>
+              Quiero ser fundadora — $199 <ArrowRight className="w-5 h-5 shrink-0"/>
+            </button>
             <p className="text-xs text-muted-foreground mt-3 text-center sm:text-left">
-              Gratis durante el lanzamiento · $99 MXN/mes después · Sin tarjeta de crédito
+              Pago único. Acceso de por vida cuando salga la app.
             </p>
           </div>
         </div>

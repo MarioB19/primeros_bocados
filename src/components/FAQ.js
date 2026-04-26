@@ -14,8 +14,8 @@ export default function FAQ() {
       a: "Para bebés de 4 a 12 meses, desde antes de comenzar la alimentación complementaria hasta las primeras etapas de consolidación alimenticia. La app te muestra exactamente qué alimentos son seguros para la edad actual de tu bebé y cómo ofrecerlos."
     },
     {
-      q: "¿Cómo funciona el acceso gratuito?",
-      a: "Te registras con tu correo, el nombre y la edad de tu bebé. Al hacerlo, te enviamos de inmediato el ebook Primeros Bocados de regalo. Cuando la app esté lista para lanzar, serás de las primeras en recibir acceso — completamente gratis durante el período de lanzamiento."
+      q: "¿Qué incluye el Acceso Fundadora por $199?",
+      a: "Por un pago único de $199 MXN, aseguras el acceso de por vida a la app cuando se lance (sin pagar la mensualidad de $99), y además te enviamos de inmediato la Guía en PDF 'Primeros Bocados' con 21 páginas para que empieces a informarte hoy mismo."
     },
     {
       q: "¿De dónde viene la información de alimentos?",
@@ -27,11 +27,11 @@ export default function FAQ() {
     },
     {
       q: "¿Cuándo puedo empezar a usar la app?",
-      a: "Estamos en las últimas semanas de desarrollo. Al registrarte quedas en la lista de acceso anticipado — serás de las primeras en entrar cuando abramos. Te avisamos directo a tu correo."
+      a: "Estamos en las últimas semanas de desarrollo. Al adquirir el acceso fundadora, aseguras tu lugar y serás de las primeras en entrar cuando abramos. La guía en PDF, sin embargo, la recibes inmediatamente."
     },
     {
-      q: "¿El ebook es de verdad gratis?",
-      a: "Sí. Al registrarte te lo enviamos de inmediato a tu correo, sin costo y sin necesidad de tarjeta. Es nuestro regalo por sumarte antes del lanzamiento."
+      q: "¿La guía PDF es de verdad gratis si no quiero pagar?",
+      a: "Sí. Si aún no estás lista para el acceso fundadora, puedes registrarte abajo solo con tu correo y te enviaremos la guía PDF sin costo alguno."
     }
   ];
 
@@ -49,7 +49,7 @@ export default function FAQ() {
             Preguntas frecuentes
           </h2>
           <p className="text-muted-foreground mt-4 md:mt-6 text-lg">
-            Todo lo que necesitas saber antes de registrarte.
+            Todo lo que necesitas saber sobre el Acceso Fundadora.
           </p>
         </div>
 

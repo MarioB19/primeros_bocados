@@ -1,61 +1,66 @@
-import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Gift } from "lucide-react";
+"use client";
+
+import { Check, ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
-import ScrollToRegistroButton from "@/components/ScrollToRegistroButton";
 
 export default function Hero() {
+  const scrollToOffer = () => {
+    const oferta = document.getElementById("oferta");
+    if (oferta) {
+      oferta.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="container mx-auto px-6 py-16 md:py-24 max-w-[1400px] flex flex-col md:flex-row items-center gap-12 lg:gap-8">
+    <section className="container mx-auto px-6 py-10 md:py-16 max-w-[1400px] flex flex-col md:flex-row items-center gap-10 lg:gap-8 min-h-[90vh] md:min-h-0 justify-center">
       {/* Columna Izquierda - Texto */}
-      <div className="w-full md:w-[50%] lg:w-[45%] text-center md:text-left">
-        <div className="inline-flex items-center gap-2 px-4 md:px-5 py-2 mb-6 rounded-full bg-amber-100/80 border border-amber-300 text-amber-900 font-extrabold text-sm md:text-base shadow-sm">
-          <Gift className="w-5 h-5 text-amber-600" />
-          🎁 Regístrate gratis y recibe el ebook de regalo
+      <div className="w-full md:w-[50%] lg:w-[45%] text-center md:text-left flex flex-col justify-center">
+        <div className="inline-flex items-center justify-center md:justify-start gap-2 mb-4 md:mb-6">
+          <div className="flex -space-x-2">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="w-8 h-8 rounded-full bg-primary/20 border-2 border-white flex items-center justify-center overflow-hidden">
+                <Star className="w-4 h-4 text-primary fill-primary" />
+              </div>
+            ))}
+          </div>
+          <span className="text-sm font-semibold text-muted-foreground ml-2">Únete a 300+ mamás esperando el lanzamiento</span>
         </div>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-6 text-foreground leading-tight">
-          ¿Qué le doy de comer a mi bebé?{" "}
-          <span className="text-primary tracking-normal">Aquí tienes la respuesta.</span>
+        {/* 
+          Opciones de Headline:
+          Opción A (Activa): Deja de adivinar qué darle a tu bebé
+          Opción B: ¿Es seguro este alimento para tu bebé?
+          Opción C: Sabe en 1 segundo si ya puede comerlo
+        */}
+        <h1 className="text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-5 md:mb-6 text-foreground">
+          Deja de adivinar qué darle a tu bebé
         </h1>
 
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-          Primeros Bocados es la app que te dice, al instante, si ese alimento ya
-          es seguro para tu bebé —con la textura correcta, el tamaño exacto y cómo ofrecerlo—.
-          Avalada por la <strong>OMS y la AAP</strong>. Consigue acceso gratuito antes del lanzamiento.
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0 leading-relaxed">
+          Escribe el alimento. En un segundo sabes si ya es seguro para la edad exacta de tu bebé. Sin Google. Sin grupos de Facebook. Sin dudas.
         </p>
 
-        <div className="flex flex-col gap-7 mt-8 max-w-2xl mx-auto md:mx-0">
-          <ScrollToRegistroButton className="w-full md:w-max h-auto rounded-full px-4 sm:px-8 md:px-12 py-5 sm:py-6 md:py-7 text-base sm:text-lg md:text-xl font-black shadow-2xl shadow-primary/30 hover:-translate-y-1 hover:shadow-primary/40 transition-all flex items-center justify-center relative overflow-hidden group">
+        <div className="flex flex-col gap-4 md:gap-7 mt-2 md:mt-4 max-w-2xl mx-auto md:mx-0 w-full">
+          <button
+            onClick={scrollToOffer}
+            className="w-full md:w-max min-h-[56px] rounded-full px-4 sm:px-8 md:px-12 py-4 sm:py-5 text-base sm:text-lg md:text-xl font-black shadow-2xl shadow-primary/30 hover:-translate-y-1 hover:shadow-primary/40 transition-all flex items-center justify-center relative overflow-hidden group bg-primary text-primary-foreground"
+          >
             <span className="absolute inset-0 bg-white/20 w-full translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
-            <span className="relative flex items-center justify-center gap-2">
-              Quiero acceso gratuito
-              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[3px] shrink-0 fill-none"/>
+            <span className="relative flex items-center justify-center gap-2 text-center">
+              Quiero ser fundadora — $199
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[3px] shrink-0 fill-none hidden sm:block"/>
             </span>
-          </ScrollToRegistroButton>
+          </button>
 
-          <p className="text-xs text-muted-foreground text-center md:text-left">
-            Gratis durante el lanzamiento · $99 MXN/mes después · Sin tarjeta de crédito
+          <p className="text-xs sm:text-sm font-medium text-muted-foreground text-center md:text-left leading-relaxed max-w-md mx-auto md:mx-0">
+            Pago único. Acceso de por vida cuando salga la app. Guía PDF inmediata.
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-6 text-sm font-semibold text-muted-foreground w-full">
-            <div className="flex items-center gap-1.5">
-              <Check className="w-5 h-5 text-emerald-600 stroke-[3px]"/> Gratis al registrarte
-            </div>
-            <div className="hidden sm:block text-border/60">•</div>
-            <div className="flex items-center gap-1.5">
-              <Check className="w-5 h-5 text-emerald-600 stroke-[3px]"/> Sin tarjeta de crédito
-            </div>
-            <div className="hidden sm:block text-border/60">•</div>
-            <div className="flex items-center gap-1.5">
-              <Check className="w-5 h-5 text-emerald-600 stroke-[3px]"/> Basada en la OMS y la AAP
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Columna Derecha - Imagen */}
-      <div className="w-full md:w-[50%] lg:w-[55%] flex justify-center items-center mt-16 md:mt-0 relative z-10 transition-all duration-500">
-        <div className="relative w-full xl:scale-110 origin-left">
+      <div className="w-full md:w-[50%] lg:w-[55%] flex justify-center items-center mt-4 md:mt-0 relative z-10 transition-all duration-500">
+        <div className="relative w-full max-w-[320px] md:max-w-none xl:scale-110 origin-left">
            {/* Sombra decorativa trasera */}
            <div className="absolute top-4 md:top-8 -right-4 md:-right-8 w-full h-full bg-secondary/10 rounded-[2rem] md:rounded-[3rem] pointer-events-none"></div>
 
