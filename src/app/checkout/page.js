@@ -13,6 +13,7 @@ export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [preferenceId, setPreferenceId] = useState(null);
   const [orderId, setOrderId] = useState(null);
+  const [paymentError, setPaymentError] = useState(null);
   
   const router = useRouter();
 
@@ -94,9 +95,11 @@ export default function CheckoutPage() {
   };
 
   const onSubmit = async ({ selectedPaymentMethod, formData }) => {
+    setPaymentError(null);
+
     try {
-      // Confirmar la orden en nuestro backend
-      await fetch("/api/checkout/confirm-order", {
+      // Confirmar la orden en nuestro backend y verificar el status real
+      const res = await fetch("/api/checkout/confirm-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -104,11 +107,23 @@ export default function CheckoutPage() {
           paymentId: formData?.payer?.id || formData?.id || null,
         }),
       });
+
+      const result = await res.json();
+
+      if (result.status === "approved") {
+        router.push("/gracias");
+      } else if (result.status === "rejected") {
+        setPaymentError("Tu pago fue rechazado. Verifica los datos de tu tarjeta o intenta con otro método de pago.");
+      } else if (result.status === "in_process" || result.status === "pending") {
+        router.push("/gracias");
+      } else {
+        setPaymentError("No pudimos procesar tu pago. Por favor intenta de nuevo.");
+      }
     } catch (err) {
       console.error("Error confirmando orden:", err);
+      // Si falla la verificación, redirigimos igual y el webhook se encargará
+      router.push("/gracias");
     }
-    // Redirigir siempre a /gracias (el webhook de MP es el respaldo)
-    router.push("/gracias");
   };
 
   return (
@@ -277,6 +292,16 @@ export default function CheckoutPage() {
                   <Lock className="w-4 h-4 shrink-0" />
                   Estás a punto de asegurar tu Acceso Fundadora por $199 MXN
                 </div>
+
+                {paymentError && (
+                  <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium flex items-start gap-3">
+                    <span className="text-lg shrink-0">⚠️</span>
+                    <div>
+                      <p className="font-bold mb-1">Pago no procesado</p>
+                      <p>{paymentError}</p>
+                    </div>
+                  </div>
+                )}
                 
                 <div className="-mx-2 overflow-visible">
                   {preferenceId && (
