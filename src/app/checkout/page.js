@@ -71,7 +71,6 @@ export default function CheckoutPage() {
 
   const initialization = {
     amount: 199,
-    preferenceId: preferenceId,
     payer: {
       email: email,
     },
@@ -81,7 +80,6 @@ export default function CheckoutPage() {
     paymentMethods: {
       creditCard: "all",
       debitCard: "all",
-      mercadoPago: "all",
     },
     visual: {
       style: {
@@ -98,13 +96,13 @@ export default function CheckoutPage() {
     setPaymentError(null);
 
     try {
-      // Confirmar la orden en nuestro backend y verificar el status real
-      const res = await fetch("/api/checkout/confirm-order", {
+      // Enviar los datos del pago a nuestro backend para procesarlo
+      const res = await fetch("/api/checkout/process-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           orderId,
-          paymentId: formData?.payer?.id || formData?.id || null,
+          formData,
         }),
       });
 
@@ -113,16 +111,23 @@ export default function CheckoutPage() {
       if (result.status === "approved") {
         router.push("/gracias");
       } else if (result.status === "rejected") {
-        setPaymentError("Tu pago fue rechazado. Verifica los datos de tu tarjeta o intenta con otro método de pago.");
+        const messages = {
+          cc_rejected_call_for_authorize: "Tu banco requiere que autorices el pago. Llama a tu banco e intenta de nuevo.",
+          cc_rejected_insufficient_amount: "Tu tarjeta no tiene fondos suficientes.",
+          cc_rejected_bad_filled_card_number: "Revisa el número de tu tarjeta.",
+          cc_rejected_bad_filled_date: "Revisa la fecha de vencimiento.",
+          cc_rejected_bad_filled_security_code: "Revisa el código de seguridad (CVV).",
+          cc_rejected_bad_filled_other: "Revisa los datos de tu tarjeta.",
+        };
+        setPaymentError(messages[result.statusDetail] || "Tu pago fue rechazado. Verifica los datos de tu tarjeta o intenta con otro método de pago.");
       } else if (result.status === "in_process" || result.status === "pending") {
         router.push("/gracias");
       } else {
-        setPaymentError("No pudimos procesar tu pago. Por favor intenta de nuevo.");
+        setPaymentError(result.details || "No pudimos procesar tu pago. Por favor intenta de nuevo.");
       }
     } catch (err) {
-      console.error("Error confirmando orden:", err);
-      // Si falla la verificación, redirigimos igual y el webhook se encargará
-      router.push("/gracias");
+      console.error("Error procesando pago:", err);
+      setPaymentError("Error de conexión. Revisa tu internet e intenta de nuevo.");
     }
   };
 
