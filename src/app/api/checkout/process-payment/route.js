@@ -62,6 +62,35 @@ export async function POST(req) {
 
     await orderRef.update(updateData);
 
+    // Si el pago fue aprobado, agregar al comprador al grupo Founder en MailerLite
+    if (result.status === "approved") {
+      try {
+        const MAILERLITE_API_KEY = process.env.MAILERLITE_API_KEY;
+        const FOUNDER_GROUP_ID = process.env.MAILERLITE_FOUNDER_GROUP_ID;
+
+        await fetch("https://connect.mailerlite.com/api/subscribers", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${MAILERLITE_API_KEY}`,
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            email: orderData.customerEmail,
+            fields: {
+              name: orderData.customerName,
+            },
+            groups: [FOUNDER_GROUP_ID],
+          }),
+        });
+
+        console.log(`Comprador ${orderData.customerEmail} agregado al grupo Founder en MailerLite`);
+      } catch (mlError) {
+        // No bloqueamos el flujo de pago si MailerLite falla
+        console.error("Error al agregar comprador a MailerLite:", mlError);
+      }
+    }
+
     console.log(`Pago procesado para orden ${orderId}: status=${result.status}, paymentId=${result.id}`);
 
     return NextResponse.json({
