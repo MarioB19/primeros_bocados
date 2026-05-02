@@ -109,7 +109,7 @@ export default function CheckoutPage() {
       const result = await res.json();
 
       if (result.status === "approved") {
-        router.push("/gracias");
+        router.push("/gracias?status=approved");
       } else if (result.status === "rejected") {
         const messages = {
           cc_rejected_call_for_authorize: "Tu banco requiere que autorices el pago. Llama a tu banco e intenta de nuevo.",
@@ -121,7 +121,7 @@ export default function CheckoutPage() {
         };
         setPaymentError(messages[result.statusDetail] || "Tu pago fue rechazado. Verifica los datos de tu tarjeta o intenta con otro método de pago.");
       } else if (result.status === "in_process" || result.status === "pending") {
-        router.push("/gracias");
+        router.push("/gracias?status=pending");
       } else {
         setPaymentError(result.details || "No pudimos procesar tu pago. Por favor intenta de nuevo.");
       }
